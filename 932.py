@@ -1,7 +1,7 @@
 #import
 T16=5131
-for num in range(10_000,100_000):
+for num in range(10_000,10_150):
     snum=str(num)
     for digit in range(1,len(snum)):
-        print(num, snum[,digit])
+        print(num, snum[0:digit], snum[digit:])
 
