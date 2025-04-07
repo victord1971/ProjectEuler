@@ -9,8 +9,9 @@ for num in range(11,10_000_000_000_000_000):
             te1=snum[0:digit]
             te2=snum[digit:]
             #print(num, snum[0:digit], snum[digit:])
-            print(num, te1, te2)
+            
             if (int(te1)+int(te2))**2 == num:
                 T4+=num
+                print(num, te1, te2)
     print()
 print(T4)
