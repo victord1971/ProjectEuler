@@ -1,5 +1,6 @@
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 int substr(char *src, char *dest, int num, int len) {
     /* проверка случая 4 */
@@ -19,13 +20,12 @@ int main()
 {
     char snum[18], te1[17], te2[17];
     int i, len;
-    long long T16, num;
-    printf("Hello, World!\n");
+    long long T16, num, te1d,te2d;
     T16=0;
-    for (num=11; num<200; num++)
+    for (num=11; num<10 000; num++)
     {
         sprintf(snum,"%d",num);
-        //printf("%d  %s  ", num,snum);
+        //printf("%d  %s  ", num, snum);
         i=0;
         while (snum[i]!='\0')
         {
@@ -34,14 +34,22 @@ int main()
             if(i<len-1)
             {
                 substr(snum,te1,0,i+1); //te2=substr(snum,i+1,len-i);
-                printf("%s  %d  %d  %s    ",snum,i,len,te1);
-                //printf("%s  %d  %s  %s",snum,len,te1,te2);
+                //printf("%s  %d  %d  %s    ",snum,i,len,te1);
+                te1d=atoll(te1);
+                substr(snum,te2,i+1,len-i);
+                te2d=atoll(te2);
+                printf("%s  %d  %s %d    ",snum,len,te1,te2d);
+                if((te1d+te2d)*(te1d+te2d)==num)
+                {
+                    T16+=num;
+                    printf("%d", T16);
+                }
             }
             i++;
         }
         printf("\n");
     }
-
+    printf("%d", T16);
 }
 
 
