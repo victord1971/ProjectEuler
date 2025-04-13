@@ -20,13 +20,14 @@ int main()
 {
     char snum[18], te1[17], te2[17];
     int i, len;
-    long long T16, num, te1d, te2d, temp;
+    long long T16, T10, num, te1d, te2d, temp;
     T16=0;
                     //1234567890123456
     for (num=11; num<10000000000000000; num++)
     {
         sprintf(snum,"%lld",num);
-        //printf("%d  %s  ", num, snum);
+        if(num%100000000==0)
+            printf("    %ld\n", num/100000000);
         i=0;
         while (snum[i+1]!='\0')
         {
