@@ -1,0 +1,19 @@
+Простейшее быстрое решение для любого целого числа - двоичный поиск для получения целой части квадратного корня и прямая проверка что его квадрат равен исходному числу:
+
+def isqrt(n):
+    low = 0
+    high = n + 1 # + 1 to process 0, 1 properly
+
+    while low < high - 1:
+        mid = (low + high) // 2
+        if n < mid ** 2:
+            high = mid
+        else:
+            low = mid
+
+    return low
+
+
+def is_square(n):
+    return n >= 0 and isqrt(n) ** 2 == n
+
