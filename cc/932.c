@@ -25,14 +25,15 @@ int main()
                     //1234567890123456
     for (num=11; num<10000; num++)
     {
-        sprintf(snum,"%d",num);
+        sprintf(snum,"%lld",num);
         //printf("%d  %s  ", num, snum);
         i=0;
-        while (snum[i]!='\0')
+        while (snum[i+1]!='\0')
         {
             //strncpy(destination, source, 10);
             len=strlen(snum);
-            if((i<len-1) && (snum[i+1]!='0'))
+            //if((i<len-1) && (snum[i+1]!='0'))
+            if(snum[i+1]!='0')
             {
                 substr(snum,te1,0,i+1); //te2=substr(snum,i+1,len-i);
                 //printf("%s  %d  %d  %s    ",snum,i,len,te1);
@@ -44,7 +45,7 @@ int main()
                 if(temp*temp==num)
                 {
                     T16+=num;
-                    printf("%d    %d %d\n", T16,te1d,te2d);
+                    printf("%lld    %lld %lld %lld\n", T16,num,te1d,te2d);
                 }
             }
             i++;
