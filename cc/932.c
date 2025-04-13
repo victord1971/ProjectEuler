@@ -23,7 +23,7 @@ int main()
     long long T16, num, te1d, te2d, temp;
     T16=0;
                     //1234567890123456
-    for (num=11; num<10000; num++)
+    for (num=11; num<10000000000000000; num++)
     {
         sprintf(snum,"%lld",num);
         //printf("%d  %s  ", num, snum);
