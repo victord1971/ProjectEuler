@@ -20,9 +20,10 @@ int main()
 {
     char snum[18], te1[17], te2[17];
     int i, len;
-    long long T16, num, te1d,te2d;
+    long long T16, num, te1d, te2d, temp;
     T16=0;
-    for (num=11; num<10 000; num++)
+                    //1234567890123456
+    for (num=11; num<10000000000000000; num++)
     {
         sprintf(snum,"%d",num);
         //printf("%d  %s  ", num, snum);
@@ -31,25 +32,24 @@ int main()
         {
             //strncpy(destination, source, 10);
             len=strlen(snum);
-            if(i<len-1)
+            if((i<len-1) && (snum[i+1]!='0'))
             {
                 substr(snum,te1,0,i+1); //te2=substr(snum,i+1,len-i);
                 //printf("%s  %d  %d  %s    ",snum,i,len,te1);
                 te1d=atoll(te1);
                 substr(snum,te2,i+1,len-i);
                 te2d=atoll(te2);
-                printf("%s  %d  %s %d    ",snum,len,te1,te2d);
-                if((te1d+te2d)*(te1d+te2d)==num)
+                //printf("%s  %d  %s %d    ",snum,len,te1,te2d);
+                temp=te1d+te2d;
+                if(temp*temp==num)
                 {
                     T16+=num;
-                    printf("%d", T16);
+                    printf("%d\n", T16);
                 }
             }
             i++;
         }
-        printf("\n");
+        //printf("\n");
     }
-    printf("%d", T16);
+    printf("%lld\n", T16);
 }
-
-
