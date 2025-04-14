@@ -25,16 +25,13 @@ int main()
     long long T16, T10, num, te1d, te2d, temp;
     long long check;
     T16=0;
-                    //1234567890123456
-    for (num=11; num<10000000000000000; num++)
+                     //1234567890123456
+    for (check=5; check<100000000; check++)
     {
-        //check=sqrtl(num);
-        check=num;
-        if(check*check!=num) {continue;}
-        
+        num=check*check;        
         sprintf(snum,"%lld",num);
-        if(num%100000000==0)
-            printf("    %ld\n", num/100000000);
+        if(check%1000000==0)
+            printf("    %ld\n", check/1000000);
         i=0;
         while (snum[i+1]!='\0')
         {
