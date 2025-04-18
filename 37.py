@@ -1,5 +1,5 @@
 a=[2]
-for num in range(3,100_000):
+for num in range(3,5_00_000):
 	t=0
 	for x in a:
 		if num%x==0:
