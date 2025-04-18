@@ -14,12 +14,12 @@ for num in a:
 	print(num)
 	snum=str(num)
 	for digit in range(1,len(snum)):
-		if snum[digit:digit+1] != '0':
+	#if snum[digit:digit+1] != '0':
 		if snum[digit:digit+1] != '0':
             te1=snum[0:digit]
             #te1=snum[0:digit]
             te2=snum[digit:]
-			#te2=snum[digit:]
-			print('    ', te1, te2)
+	#te2=snum[digit:]
+            print('    ', te1, te2)
 	#print(' ')
 
