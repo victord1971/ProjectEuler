@@ -1,5 +1,5 @@
 a=[2]
-for num in range(3,100_000):
+for num in range(3,10_000):
 	t=0
 	for x in a:
 		if num%x==0:
@@ -11,11 +11,15 @@ for num in range(3,100_000):
 	#print(num)
 print(a)
 for num in a:
-    snum=str(num)
-    for digit in range(1,len(snum)):
-        if snum[digit:digit+1] != '0':
+	print(num)
+	snum=str(num)
+	for digit in range(1,len(snum)):
+		if snum[digit:digit+1] != '0':
+		if snum[digit:digit+1] != '0':
             te1=snum[0:digit]
+            #te1=snum[0:digit]
             te2=snum[digit:]
-            print(num, te1, te2)
+			#te2=snum[digit:]
+			print('    ', te1, te2)
 	#print(' ')
 
