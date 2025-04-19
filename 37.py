@@ -1,4 +1,6 @@
 a=[2]
+sum=0
+its=0
 for num in range(3,5_00_000):
 	
 	t=0
@@ -9,12 +11,7 @@ for num in range(3,5_00_000):
 	if t>0:
 		continue
 	a.append(num)
-	#print(num)
-print(a)
-sum=0
-its=0
-for num in a:
-	print(num)
+	
 	snum=str(num)
 	t=0
 	for digit in range(1,len(snum)):
@@ -23,7 +20,7 @@ for num in a:
             #te1=snum[0:digit]
 			te2=snum[digit:]
 			#te2=snum[digit:]
-			print('    ', te1, te2)
+			#print('    ', te1, te2)
 			if not(int(te1) in a):
 				t+=1; break
 			if not(int(te2) in a):
@@ -31,7 +28,11 @@ for num in a:
 	if t==0 and num>22:
 		print('            ',num)
 		its+=1
-print(its)		
+		print(its)		
+print(its)
+
+#for num in a:
+#	print(num)
 
 
 
