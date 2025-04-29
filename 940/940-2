@@ -1,0 +1,33 @@
+def calculate_a(m, n, memo):
+    if (m, n) in memo:
+        return memo[(m, n)]
+    if m == 0 and n == 0:
+        return 0
+    if m == 0 and n == 1:
+        return 1
+    if m > 0 and n >= 0:
+      result1 = calculate_a(m - 1, n + 1, memo)
+      result2 = calculate_a(m - 1, n, memo)
+      result = result1 + result2
+      memo[(m,n)] = result
+      return result
+    if m > 0 and n > 0:
+      result1 = calculate_a(m, n, memo)
+      result2 = calculate_a(m - 1, n, memo)
+      result = 2 * result1 + result2
+      memo[(m,n)] = result
+      return result
+    return 0
+
+def generate_a_table(size):
+    A = [[0 for _ in range(size)] for _ in range(size)]
+    memo = {}
+    for m in range(size):
+        for n in range(size):
+            A[m][n] = calculate_a(m, n, memo)
+    return A
+
+A_table = generate_a_table(6)
+
+for row in A_table:
+    print(row)
