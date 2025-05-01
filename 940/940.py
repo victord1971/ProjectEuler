@@ -4,6 +4,7 @@ A[0][1]=1
 #print(A)   A[1][0]=1   print(A[0+1][0])
 for q in range(size-1):
     A[q+1][0]=A[q][1]+A[q][0]
+    A[q+1][q+1]=2*A[q+1][q]+A[q][q]
     print(A[q])
 
 
