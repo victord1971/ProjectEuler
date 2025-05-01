@@ -23,4 +23,4 @@ def A(m, n):
 # Тепер порахуємо S(5)
 fib = fibonacci_up_to(5)
 S_5 = sum(A(m, n) for m in fib[1:] for n in fib[1:])  # від f_2 до f_5
-print(S_5)
+print(fib,S_5)
