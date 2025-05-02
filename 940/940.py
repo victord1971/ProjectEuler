@@ -1,5 +1,5 @@
 MOD = 1123581313
-K = 6
+K = 5
 
 # Створюємо таблицю (K x K), заповнену нулями
 A = [[0 for _ in range(K)] for _ in range(K)]
@@ -27,5 +27,6 @@ for m in range(1, K):
     for n in range(1, K):
         result = (result + A[m][n]) % MOD
 
-print(result)
-print(A)
+new_var = result
+print(new_var)
+
