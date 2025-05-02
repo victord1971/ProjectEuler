@@ -1,5 +1,5 @@
 MOD = 1123581313
-K = 50
+K = 9
 
 # Створюємо таблицю (K x K), заповнену нулями
 A = [[0 for _ in range(K)] for _ in range(K)]
@@ -28,4 +28,4 @@ for m in range(1, K):
         result = (result + A[m][n]) % MOD
 
 print(result)
-
+print(A)
