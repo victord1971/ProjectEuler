@@ -21,15 +21,11 @@ for m in range(1, K):
         else:
             A[m][n] = (2 * A[m][n-1] + A[m-1][n-1]) % MOD
 
-# Виведемо таблицю для перевірки
-print("Таблиця A:")
-for row in A:
-    print(row)
-
 # Обчислення суми S(K)
 result = 0
-for m in range(1, K):
-    for n in range(1, K):
+for m in range(K):
+    for n in range(K):
         result = (result + A[m][n]) % MOD
 
-print(f"Результат S({K}): {result}")
+# Вивести результат
+print(result)
