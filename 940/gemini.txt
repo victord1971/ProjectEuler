@@ -128,6 +128,7 @@ S(6)=93+384+1230+3719+12283= 17560
 [3927, 9043, 20824, 47953, 110425, 254284, 585559, 1348411, 3105088]
 
 
-
+I suspect there is an error in the condition of the problem. 
+They had written S(5)=10396. And according to my calculations S(5)=2248. Help me
 
 
