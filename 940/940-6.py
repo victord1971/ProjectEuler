@@ -3,14 +3,15 @@ MOD = 1123581313  # Можна змінити або прибрати
 def compute_S(K, mod=MOD):
     # Створюємо таблицю A (K x K)
     A = [[0] * K for _ in range(K)]
-
+    print(A)
     # Початковий рядок A[0][n]
     if K > 1:
         A[0][1] = 1
+        '''
     if K > 2:
         A[0][2] = 1
     for n in range(3, K):
-        A[0][n] = (A[0][n-2] + A[0][n-3]) % mod
+        A[0][n] = (A[0][n-2] + A[0][n-3]) % mod '''
 
     # Заповнення всієї таблиці A
     for m in range(1, K):

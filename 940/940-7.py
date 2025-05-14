@@ -8,14 +8,15 @@ A = [[0 for _ in range(K)] for _ in range(K)]
 # Початкові умови A[0][0] = 0
 if K > 1:
     A[0][1] = 1
+    '''
 if K > 2:
     A[0][2] = 1
 for n in range(3, K):
-    A[0][n] = (A[0][n-1] + A[0][n-2]) #% MOD
+    A[0][n] = (A[0][n-1] + A[0][n-2]) #% MOD  '''
 
 # Заповнення таблиці згідно з рекурсіями
 for m in range(1, K):
-    for n in range(K):
+    for n in range(m+1):
         if n == 0:
             A[m][n] = (A[m-1][n] + A[m-1][n+1]) #% MOD
         else:
