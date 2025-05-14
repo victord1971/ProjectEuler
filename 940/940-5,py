@@ -1,0 +1,52 @@
+
+def calculate_a_table(max_m, max_n):
+    """
+    Розраховує таблицю значень функції A(m, n) до заданих max_m та max_n.
+    """
+    a = [[0 for _ in range(max_n + 1)] for _ in range(max_m + 1)]
+    a[0][0] = 0
+    a[0][1] = 1
+
+    for n in range(2, max_n + 1):
+        a[0][n] = 1
+
+    for m in range(1, max_m + 1):
+        a[m][0] = a[m - 1][1] + a[m - 1][0]
+        for n in range(1, max_n + 1):
+            a[m][n] = a[m - 1][n + 1] + a[m - 1][n]
+        for n in range(m + 1, max_n + 1):
+            a[m][n] = 2 * a[m][n - 1] + a[m - 1][n - 1]
+
+    return a
+
+def print_table(table):
+    """
+    Виводить таблицю у форматованому вигляді.
+    """
+    header = "| m\\n | " + " | ".join(map(str, range(len(table[0])))) + " |"
+    separator = "| --- | " + " | ".join(["---"] * len(table[0])) + " |"
+    print(header)
+    print(separator)
+    for i, row in enumerate(table):
+        row_str = "| " + str(i) + "   | " + " | ".join(map(str, row)) + " |"
+        print(row_str)
+
+if __name__ == "__main__":
+    max_m = 5
+    max_n = 5
+    a_table = calculate_a_table(max_m, max_n)
+    print("Таблиця значень A(m, n):")
+    print_table(a_table)
+
+    fibonacci = [0, 1, 1, 2, 3, 5]  # f_0 до f_5
+
+    s5 = 0
+    for i in range(2, 6):
+        for j in range(2, 6):
+            if fibonacci[i] <= max_m and fibonacci[j] <= max_n:
+                s5 += a_table[fibonacci[i]][fibonacci[j]]
+            else:
+                print(f"Увага: Індекс Фібоначчі {max(fibonacci[i], fibonacci[j])} виходить за межі таблиці.")
+                # Для точного S(5) таблиця має бути достатньо великою
+
+    print(f"\nS(5) = {s5}")
