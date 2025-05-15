@@ -1,11 +1,13 @@
 #MOD = 1
 MOD = 1123581313
-k=3
+k=10
 f=[0,1]
 for x in range(2,k+1):
     f.append(f[x-1]+f[x-2])
 print(f)
 K = f[k]+1
+f.pop(0); f.pop(0)
+print(f)
 
 # Створюємо таблицю (K x K), заповнену нулями
 A = [[0 for _ in range(K)] for _ in range(K)]
@@ -19,9 +21,9 @@ for m in range(1, K):
     for n in range(m+2):
         if n < K:
             if n == 0:
-                A[m][n] = (A[m-1][n] + A[m-1][n+1]) #% MOD
+                A[m][n] = (A[m-1][n] + A[m-1][n+1]) % MOD
             else:
-                A[m][n] = (2 * A[m][n-1] + A[m-1][n-1]) #% MOD
+                A[m][n] = (2 * A[m][n-1] + A[m-1][n-1]) % MOD
                 if n == m-1:
                     for x in range (m-1):
                         #t=0
@@ -37,8 +39,9 @@ for row in A:
 
 # Обчислення суми S(K)
 result = 0
-for m in range(1, K):
-    for n in range(1, K):
+for m in f:
+    for n in f:
+        #if m>1 and n>1:
         result = (result + A[m][n]) 
 #print(A)
 print(result % MOD)
