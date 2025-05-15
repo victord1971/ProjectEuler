@@ -6,6 +6,7 @@ for x in range(2,k+1):
     f.append(f[x-1]+f[x-2])
 print(f)
 K = f[k]+1
+print(K)
 f.pop(0); f.pop(0)
 print(f)
 
