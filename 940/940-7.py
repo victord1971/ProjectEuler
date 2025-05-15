@@ -1,6 +1,6 @@
 #MOD = 1
 MOD = 1123581313
-k=40
+k=50
 f=[0,1]
 for x in range(2,k+1):
     f.append(f[x-1]+f[x-2])
