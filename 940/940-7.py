@@ -16,15 +16,22 @@ for n in range(3, K):
 
 # Заповнення таблиці згідно з рекурсіями
 for m in range(1, K):
-    for n in range(m+1):
-        if n == 0:
-            A[m][n] = (A[m-1][n] + A[m-1][n+1]) #% MOD
-        else:
-            A[m][n] = (2 * A[m][n-1] + A[m-1][n-1]) #% MOD
+    for n in range(m+2):
+        if n < K:
+            if n == 0:
+                A[m][n] = (A[m-1][n] + A[m-1][n+1]) #% MOD
+            else:
+                A[m][n] = (2 * A[m][n-1] + A[m-1][n-1]) #% MOD
+                if n == m-1:
+                    for x in range (m-1):
+                        #t=0
+                        A[x][n]=A[x+1][n-1] - A[x][n-1]
 
 # Виведення таблиці для перевірки
 for row in A:
-    print(row)
+    for a in row:
+        print(a,end='\t')
+    print()
 
 # Обчислення суми S(K)
 result = 0
