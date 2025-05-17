@@ -1,6 +1,6 @@
 #MOD = 1
 MOD = 1123581313
-k=50
+k=5
 f=[0,1]
 for x in range(2,k+1):
     f.append(f[x-1]+f[x-2])
@@ -29,7 +29,7 @@ for m in range(1, K):
                     for x in range (m-1):
                         #t=0
                         A[x][n]= (A[x+1][n-1] - A[x][n-1]) % MOD
-    print(m, A[m][0])
+    print(m,'\t', A[m][0])
 for x in range(K-2):
     A[x][K-1]= (A[x+1][K-2] - A[x][K-2]) % MOD
 
