@@ -1,6 +1,6 @@
 #MOD = 1
 MOD = 1123581313
-k=6
+k=13
 f=[0,1]
 for x in range(2,k+1):
     f.append(f[x-1]+f[x-2])
@@ -46,5 +46,5 @@ for m in f:
         #if m>1 and n>1:
         result = (result + A[m][n]) 
 #print(A)
-print(result) #% MOD)
+print(result % MOD)
 
