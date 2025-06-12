@@ -31,5 +31,5 @@ for m in range(2,K):
     An.append(2*An[i]+A[i])
     An.append(2*An[i+1]+A[i+1])
     print(An)
-    A=An; An=[]; #median+=1
+    A=An; An=[]; median+=1
     # Обчислення суми S(K)
