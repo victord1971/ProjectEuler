@@ -1,6 +1,6 @@
 
 MOD = 1123581313
-k=10
+k=22
 f=[0,1]
 A=[]; An=[]
 B=[1]; Bn=[]
@@ -51,11 +51,11 @@ for m in range(2,K):
         for i in range(1,m+1):
             if i in f:
                 #print(i,A[i])
-                result+=A[i]
-                num+=1;print(A[i],num)
+                result+= (A[i]) #% MOD
+                #num+=1;print(A[i],num)
         for i in range(len(B)-1,0,-1):
             if i in f:
                 #print(i,B[len(B)-1-i])
-                result+=B[len(B)-1-i]
-                num+=1;print(B[len(B)-1-i],num)
-print(result)
+                result+= (B[len(B)-1-i]) #% MOD
+                #num+=1;print(B[len(B)-1-i],num)
+print(result % MOD)
