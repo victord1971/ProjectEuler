@@ -34,9 +34,12 @@ for m in range(2,K):
         #Bn.append(An[i-1]-B[i-1])
     An.append(2*An[i]+A[i])
     An.append(2*An[i+1]+A[i+1])
-    #for i in range(0, median):
     Bn.append(An[median]-A[median])
-    
+    #print('                ',A,B)
+    Bn.append(A[median]-B[median-2])
+    for i in range((median-1),0,-1):
+        #print(median,i,A[i],B)
+        Bn.append(B[i-1]-B[i])
     print(An,Bn)
     A=An; An=[]; median+=1
     B=Bn; Bn=[]
