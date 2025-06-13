@@ -38,9 +38,10 @@ for m in range(2,K):
     #print('                ',A[median],B[0])
     Bn.append(A[median]-B[0])
     for i in range(0,median-1):
-        print('   ',B[i+1],B[i])
+        #print('   ',B[i+1],B[i])
         Bn.append(B[i]-B[i+1])
     print(An,Bn)
     A=An; An=[]; median+=1
     B=Bn; Bn=[]
     # Обчислення суми S(K)
+    
