@@ -1,6 +1,6 @@
 
 MOD = 1123581313
-k=22
+k=50
 f=[0,1]
 A=[]; An=[]
 B=[1]; Bn=[]
@@ -47,7 +47,7 @@ for m in range(2,K):
     # Обчислення суми S(K)
     #print(m,A)
     if m in f:
-        print('      ',m)
+        print('      ',m,result % MOD)
         for i in range(1,m+1):
             if i in f:
                 #print(i,A[i])
