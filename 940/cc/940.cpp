@@ -3,14 +3,14 @@
 #include <vector>
 
 int main() {
-  vector <long> numbers = {1, 2, 3, 4, 5};
-  numbers.push_back(6);
+  std::vector <long> numbers = {1, 2, 3, 4, 5};
+  numbers.push_back(32);
 
   for (int number : numbers)
   {
-    cout << number << " ";
+    std::cout << number << " ";
   }
-  cout << endl;
+  std::cout << std::endl;
 
   return 0;
 }
