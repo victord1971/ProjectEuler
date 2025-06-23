@@ -1,6 +1,6 @@
 
 MOD = 1123581313
-k=50
+k=4
 f=[0,1]
 A=[]; An=[]
 B=[1]; Bn=[]
@@ -39,8 +39,9 @@ for m in range(2,K):
     #print('                ',A[median],B[0])
     Bn.append((A[median]-B[0]) % MOD)
     for i in range(0,median-1):
-        #print('   ',B[i+1],B[i])
+        print('loop2   ',B[i],B[i+1])
         Bn.append((B[i]-B[i+1]) % MOD)
+        print('loop2   ',B[i],B[i+1])
     #print(An,Bn)
     A=An; An=[]; median+=1
     B=Bn; Bn=[]
