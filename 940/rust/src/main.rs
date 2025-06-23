@@ -44,16 +44,16 @@ fn main() {
          i =0;
          loop {
               if i>0 {     
-                 println!("loop2 ended {} {}",b1[i],b1[i+1]);
+                 println!("loop2 ended {} {}",i,b1.len());
                  bn.push((b1[i]-b1[i+1]) % modu);
               }
-              i +=1;  if i==(median-1) {break;}
+              i +=1;  if i>=(median-1) {break;}
          }
          println!("loop2 ended");
                                     //*/
-         a1=an.to_vec(); an.clear();
+         a1.clear(); a1=an.to_vec(); an.clear();
          median +=1;
-         b1=bn.to_vec(); bn.clear();
+         b1.clear(); b1=bn.to_vec(); bn.clear();
          //Обчислення суми S(K)
          //resumm +=1;
          m +=1;  if m==k2.try_into().unwrap() {break;}
