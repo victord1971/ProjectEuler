@@ -1,7 +1,7 @@
 
 fn main() {
-    let modu =1123581313;
-    let k =5;
+    let modu: u128 =1123581313;
+    let k =9;
     let k2;
     let mut m =2;
     let mut f =Vec::<u128>::new(); f.push(0); f.push(1);
@@ -30,19 +30,20 @@ fn main() {
          i =0;
          loop {
               //println!("loop! {} {}",a1[i],a1[i+1]);
-              an.push((a1[i]+a1[i+1]) % modu);
+              an.push( a1[i]+a1[i+1] );
               i +=1;  if i==median {i -=1; break;}
          }
      //*                                    
          //println!("an! {}",i);
-         an.push((2*an[i]+a1[i]) % modu);
-         an.push((2*an[i+1]+a1[i+1]) % modu);
-         bn.push((an[median]-a1[median]) % modu);
-         //println!("                ! {} {}",a1[median],b1[0]);
-         bn.push((a1[median]-b1[0]) % modu);
+         an.push( 2*an[i]+a1[i] );
+         an.push( 2*an[i+1]+a1[i+1] );
+         println!("                ! {} {}",an[median],a1[median]);
+         bn.push( an[median]-a1[median] );
+         println!("                ! {} {}",a1[median],b1[0]);
+         bn.push( a1[median]-b1[0] );
          for _i in 0..(median-1) {
-                 //println!("loop2      {} {}",i,b1.len());
-                 bn.push((b1[_i]-b1[_i+1]) % modu);
+                 println!("loop2      {} {}", b1[_i], b1[_i+1]);
+                 bn.push( b1[_i]-b1[_i+1] );
          }
          print!("after loop2 ");
          for _i in 0..an.len() {
@@ -63,7 +64,7 @@ fn main() {
              for _i in 1..(m+1) {
                  if f.contains(&(_i.try_into().unwrap())) { 
                      print!("            sum={sum}");
-                     sum +=a1[_i];    
+                     sum = (sum+a1[_i]) %modu;
                      println!(" + {} = {}",a1[_i],sum);
                  }
              }
@@ -75,7 +76,7 @@ fn main() {
                  println!(" bb {} => {}",ii,b1[ii]);
                  if f.contains(&(ii.try_into().unwrap())) {
                      print!("            sum b={sum}");
-                     sum +=b1[b1.len()-1-ii];
+                     sum = (sum+b1[b1.len()-1-ii]) %modu;
                      println!(" + {} = {}",b1[ii],sum);
                  }
                  if ii==0 {break;}
