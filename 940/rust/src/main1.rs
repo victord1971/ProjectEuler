@@ -1,8 +1,8 @@
 
 fn main() {
-    let modu =1123581313;
-    let k =3 ;
-    let k2;
+    let modu: u128 =1123581313;
+    let k =3;
+    let k2: u128;
     let mut m =2;
     let mut f =Vec::<u128>::new(); f.push(0); f.push(1);
     let mut a1 =Vec::<u128>::new();    a1.push(1);  a1.push(2);
@@ -22,55 +22,41 @@ fn main() {
     //
     m =2;
     let mut median =1;
-    let mut sum =2;
+ //   median +=1;
+ //   let mut resumm =2;
     let mut i;
     let mut an =Vec::<u128>::new();
     let mut bn =Vec::<u128>::new();
     loop {       
          i =0;
          loop {
-              //println!("loop! {} {}",a1[i],a1[i+1]);
+              println!("loop! {} {}",a1[i],a1[i+1]);
               an.push((a1[i]+a1[i+1]) % modu);
               i +=1;  if i==median {i -=1; break;}
          }
      //*                                    
-         //println!("an! {}",i);
+         println!("an! {}",i);
          an.push((2*an[i]+a1[i]) % modu);
          an.push((2*an[i+1]+a1[i+1]) % modu);
          bn.push((an[median]-a1[median]) % modu);
          println!("                ! {} {}",a1[median],b1[0]);
          bn.push((a1[median]-b1[0]) % modu);
-         for _i in 0..(median-1) {
-                 //println!("loop2      {} {}",i,b1.len());
-                 bn.push((b1[_i]-b1[_i+1]) % modu);
+         i =0;
+         loop {
+              if i>0 {     
+                 println!("loop2 ended {} {}",i,b1.len());
+                 bn.push((b1[i]-b1[i+1]) % modu);
+              }
+              i +=1;  if i>=(median-1) {break;}
          }
-         //a1.clear();
-         a1=an.to_vec(); an.clear();
+         println!("loop2 ended");
+                                    //*/
+         a1.clear(); a1=an.to_vec(); an.clear();
          median +=1;
-         //b1.clear();
-         b1=bn.to_vec(); bn.clear();
+         b1.clear(); b1=bn.to_vec(); bn.clear();
          //Обчислення суми S(K)
-         if f.contains(&(m.try_into().unwrap())) {
-             println!("             Обчислення {} {}",m,sum);
-             for _i in 1..(m+1) {
-                 if f.contains(&(_i.try_into().unwrap())) {
-                     sum +=a1[_i];
-                 }
-             }
-             for _i in b1.len()..0 {
-                 if f.contains(&(_i.try_into().unwrap())) {
-                     sum +=b1[b1.len()-1-_i];
-                 }
-             }
-         }
+         //resumm +=1;
          m +=1;  if m==k2.try_into().unwrap() {break;}
     }
-    println!("! !      {}",sum);
+    println!("! {} {} {}",m,median,k);
 }
-
-
-
-
-
-
-
