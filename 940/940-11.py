@@ -1,6 +1,6 @@
 
 MOD = 1123581313
-k=4
+k=3
 f=[0,1]
 A=[]; An=[]
 B=[1]; Bn=[]
@@ -39,10 +39,9 @@ for m in range(2,K):
     #print('                ',A[median],B[0])
     Bn.append((A[median]-B[0]) % MOD)
     for i in range(0,median-1):
-        print('loop2   ',B[i],B[i+1])
+        #print('loop2   ',B[i],B[i+1])
         Bn.append((B[i]-B[i+1]) % MOD)
-        print('loop2   ',B[i],B[i+1])
-    #print(An,Bn)
+    print(An,Bn)
     A=An; An=[]; median+=1
     B=Bn; Bn=[]
     # Обчислення суми S(K)
@@ -51,12 +50,12 @@ for m in range(2,K):
         print('      ',m,result % MOD)
         for i in range(1,m+1):
             if i in f:
-                #print(i,A[i])
+                print(A[i])
                 result+= (A[i]) #% MOD
                 #num+=1;print(A[i],num)
         for i in range(len(B)-1,0,-1):
             if i in f:
-                #print(i,B[len(B)-1-i])
+                print(B[len(B)-1-i])
                 result+= (B[len(B)-1-i]) #% MOD
                 #num+=1;print(B[len(B)-1-i],num)
 print(result % MOD)
