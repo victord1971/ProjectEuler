@@ -1,7 +1,7 @@
 
 fn main() {
     let modu: i64 =1123581313;
-    let k =50;
+    let k =3;
     let k2;
     let mut m =2;
     let mut f =Vec::<u64>::new(); f.push(0); f.push(1);
@@ -24,6 +24,7 @@ fn main() {
     m =2;
     let mut median =1;
     let mut sum =2;
+    let mut sum2 =2;
     let mut i;
     let mut an =Vec::<i64>::new();
     let mut bn =Vec::<i64>::new();
@@ -31,12 +32,16 @@ fn main() {
     loop {       
          i =0;
          loop {
-              //println!("loop! {} {}",a1[i],a1[i+1]);
-              an.push( (a1[i]+a1[i+1]) %modu);
+              tmp =(a1[i]+a1[i+1]) %modu;
+              println!("                ! {}",i);
+              if f.contains(&(i as u64)) //.try_into().unwrap()))
+              {
+                  sum2 +=tmp;
+              }
+              an.push(tmp);
               i +=1;  if i==median {i -=1; break;}
          }
-     //*                                    
-         //println!("an! {}",i);
+         //tmp =
          an.push( (2*an[i]+a1[i]) %modu);
          an.push( (2*an[i+1]+a1[i+1]) %modu);
          //println!("                ! {} {}",an[median],a1[median]);
@@ -51,13 +56,13 @@ fn main() {
              bn.push( tmp );
          }
          //print!("after loop2 ");
-         //for _i in 0..an.len() {
-             //print!(" {} ",an[_i]);
-            //println!();
+         for _i in 0..an.len() {
+             print!(" {} ",an[_i]);
+             println!(); }
          //print!("            ");
-         //for _i in 0..bn.len() {
-             //print!(" {} ",bn[_i]);
-            //println!();
+         for _i in 0..bn.len() {
+             print!(" {} ",bn[_i]);
+             println!(); }
          //a1.clear();
          a1=an.to_vec(); an.clear();
          median +=1;
@@ -79,8 +84,7 @@ fn main() {
              loop {
                  ii -=1;
                  //println!(" bb {} => {}",ii,b1[ii]);
-                 if f.contains(&(ii as u64)) //.try_into().unwrap()))
-                 {
+                 if f.contains(&(ii.try_into().unwrap())) {
                      //print!("            sum b={sum}");
                      sum = (sum+b1[b1.len()-1-ii]) %modu;
                      //println!(" + {} = {}",b1[ii],sum);
@@ -90,7 +94,7 @@ fn main() {
          }
          m +=1;  if m==k2.try_into().unwrap() {break;}
     }
-    println!("! !      {}",sum);
+    println!("! !      {}  {}",sum,sum2);
 }
 
 
