@@ -1,7 +1,7 @@
 
 fn main() {
     let modu: i64 =1123581313;
-    let k =5;
+    let k =50;
     let k2;
     let mut m =2;
     let mut f =Vec::<u64>::new(); f.push(0); f.push(1);
@@ -24,7 +24,6 @@ fn main() {
     m =2;
     let mut median =1;
     let mut sum =2;
-    let mut sum2 =2;
     let mut i;
     let mut an =Vec::<i64>::new();
     let mut bn =Vec::<i64>::new();
@@ -52,13 +51,13 @@ fn main() {
              bn.push( tmp );
          }
          //print!("after loop2 ");
-         for _i in 0..an.len() {
-             print!(" {} ",an[_i]);
-             println!(); }
+         //for _i in 0..an.len() {
+             //print!(" {} ",an[_i]);
+            //println!();
          //print!("            ");
-         for _i in 0..bn.len() {
-             print!(" {} ",bn[_i]);
-             println!(); }
+         //for _i in 0..bn.len() {
+             //print!(" {} ",bn[_i]);
+            //println!();
          //a1.clear();
          a1=an.to_vec(); an.clear();
          median +=1;
@@ -90,7 +89,7 @@ fn main() {
          }
          m +=1;  if m==k2.try_into().unwrap() {break;}
     }
-    println!("! !      {}  {}",sum,sum2);
+    println!("! !      {}",sum);
 }
 
 

@@ -1,12 +1,12 @@
 
 fn main() {
-    let modu: i64 =1123581313;
-    let k =5;
+    let modu: i128 =1123581313;
+    let k =50;
     let k2;
     let mut m =2;
-    let mut f =Vec::<u64>::new(); f.push(0); f.push(1);
-    let mut a1 =Vec::<i64>::new();    a1.push(1);  a1.push(2);
-    let mut b1 =Vec::<i64>::new();    b1.push(1);
+    let mut f =Vec::<u128>::new(); f.push(0); f.push(1);
+    let mut a1 =Vec::<i128>::new();    a1.push(1);  a1.push(2);
+    let mut b1 =Vec::<i128>::new();    b1.push(1);
     //println!("! {} {} {} {} {}",modu,k,f[0],f[1],b1[0]);
     loop {
         f.push(f[m-1]+f[m-2]);
@@ -24,11 +24,10 @@ fn main() {
     m =2;
     let mut median =1;
     let mut sum =2;
-    let mut sum2 =2;
     let mut i;
-    let mut an =Vec::<i64>::new();
-    let mut bn =Vec::<i64>::new();
-    let mut tmp: i64;
+    let mut an =Vec::<i128>::new();
+    let mut bn =Vec::<i128>::new();
+    let mut tmp: i128;
     loop {       
          i =0;
          loop {
@@ -53,12 +52,12 @@ fn main() {
          }
          //print!("after loop2 ");
          for _i in 0..an.len() {
-             print!(" {} ",an[_i]);
-             println!(); }
+             //print!(" {} ",an[_i]);
+         }   //println!();
          //print!("            ");
          for _i in 0..bn.len() {
-             print!(" {} ",bn[_i]);
-             println!(); }
+             //print!(" {} ",bn[_i]);
+         }   //println!();
          //a1.clear();
          a1=an.to_vec(); an.clear();
          median +=1;
@@ -90,7 +89,7 @@ fn main() {
          }
          m +=1;  if m==k2.try_into().unwrap() {break;}
     }
-    println!("! !      {}  {}",sum,sum2);
+    println!("! !      {}",sum);
 }
 
 
