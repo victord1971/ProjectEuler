@@ -1,7 +1,7 @@
 
 fn main() {
     let modu: i64 =1123581313;
-    let k =5;
+    let k =3;
     let k2;
     let mut m =2;
     let mut f =Vec::<u64>::new(); f.push(0); f.push(1);
@@ -43,18 +43,22 @@ fn main() {
               println!("                ! {}",i);
               if flm && f.contains(&(i as u64)) //.try_into().unwrap()))
               {
-                  sum2 +=tmp; flm =true; fli =true; 
+                  sum2 +=tmp; flm =true; fli =true; println!("  +={}",tmp);
               }   else { fli =false; }
               an.push(tmp);
               i +=1;  if i==median {i -=1; break;}
          }
          tmp2 =(2*an[i]+a1[i]) %modu;
          an.push(tmp2);
+         if flm && f.contains(&((i+1) as u64))  {
+              sum2 +=tmp2; println!("  +={} ", tmp2);
+         }         
          tmp3 =(2*an[i+1]+a1[i+1]) %modu;
          an.push(tmp3);
          if flm && fli  {
-              sum2 +=tmp2+tmp3;
+              sum2 +=tmp3; println!("  +={} ", tmp3);
          }         
+         
          tmp =an[median]-a1[median]; loop{if tmp<0{tmp+=modu}else{break;}}
          bn.push( tmp );
          //println!("                ! {} {}",a1[median],b1[0]);
@@ -65,6 +69,7 @@ fn main() {
              tmp = b1[_i]-b1[_i+1];  loop{if tmp<0{tmp+=modu}else{break;}}
              bn.push( tmp );
          }
+
          //print!("after loop2 ");
          for _i in 0..an.len() {
              print!(" {} ",an[_i]);
