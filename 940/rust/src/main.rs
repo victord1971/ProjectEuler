@@ -65,8 +65,11 @@ fn main() {
          //println!("                ! {} {}",a1[median],b1[0]);
          tmp3 =a1[median]-b1[0];      loop{if tmp<0{tmp+=modu}else{break;}}
          bn.push( tmp3 );
-         if flm /*&& fli*/ {
+         if flm  {
             sum2 +=tmp2;
+            if fli {
+                sum2 +=tmp3;}
+            //444444444444444444444444444
             println!("4   += {} {} {} ", tmp2, tmp3, b1[b1.len()-1-i]);
          }
          for _i in 0..(median-1) {
