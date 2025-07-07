@@ -42,17 +42,12 @@ fn main() {
          loop {
               tmp =(a1[i]+a1[i+1]) %modu;
               println!("     i= {}",i);
-              if f.contains(&(i as u64))  {
-                fli =true;
-                if flm {
-                  sum2 +=tmp;  
-                  println!("1   +={}",tmp);
-                } 
-              }   
-              else { fli =false; }
+              if flm && f.contains(&(i as u64)) 
+              {
+                  sum2 +=tmp; flm =true; fli =true; println!("1   +={}",tmp);
+              }   else { fli =false; }
               an.push(tmp);
-              i +=1;  
-              if i==median {i -=1; break;}
+              i +=1;  if i==median {i -=1; break;}
          }
          tmp2 =(2*an[i]+a1[i]) %modu;
          an.push(tmp2);
@@ -76,8 +71,7 @@ fn main() {
             println!("4   += {}  ", tmp2); //, b1[b1.len()-1-i]);
             if fli {
                 println!("5   += {} ", tmp3);
-                sum2 +=tmp3;
-            }
+                sum2 +=tmp3;}
          }
          for _i in 0..(median-1) {
              //println!("loop2      {} {}", b1[_i], b1[_i+1]);
