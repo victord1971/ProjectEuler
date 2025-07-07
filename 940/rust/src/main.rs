@@ -1,7 +1,8 @@
 
+
 fn main() {
     let modu: i64 =1123581313;
-    let k =3;
+    let k =5;
     let k2;
     let mut m =2;
     let mut f =Vec::<u64>::new(); f.push(0); f.push(1);
@@ -18,7 +19,7 @@ fn main() {
     }
     //println!("! {} {} ",f[2],f[3]); //,f[4],f[5],f[6],f[7]);
     k2 =f[k]+1;
-    println!("! {k2}");
+    println!("k2= {k2}");
     f.remove(0);  f.remove(0);
     //
     m =2;
@@ -40,10 +41,10 @@ fn main() {
          }
          loop {
               tmp =(a1[i]+a1[i+1]) %modu;
-              println!("                ! {}",i);
-              if flm && f.contains(&(i as u64)) //.try_into().unwrap()))
+              println!("     i= {}",i);
+              if flm && f.contains(&(i as u64)) 
               {
-                  sum2 +=tmp; flm =true; fli =true; println!("  +={}",tmp);
+                  sum2 +=tmp; flm =true; fli =true; println!("1   +={}",tmp);
               }   else { fli =false; }
               an.push(tmp);
               i +=1;  if i==median {i -=1; break;}
@@ -51,19 +52,23 @@ fn main() {
          tmp2 =(2*an[i]+a1[i]) %modu;
          an.push(tmp2);
          if flm && f.contains(&((i+1) as u64))  {
-              sum2 +=tmp2; println!("  +={} ", tmp2);
+              sum2 +=tmp2; println!("2   +={} ", tmp2);
          }         
          tmp3 =(2*an[i+1]+a1[i+1]) %modu;
          an.push(tmp3);
-         if flm && fli  {
-              sum2 +=tmp3; println!("  +={} ", tmp3);
+         if flm /*&& fli*/  {
+              sum2 +=tmp3; println!("3   +={} ", tmp3);
          }         
          
-         tmp =an[median]-a1[median]; loop{if tmp<0{tmp+=modu}else{break;}}
-         bn.push( tmp );
+         tmp2 =an[median]-a1[median]; loop{if tmp<0{tmp+=modu}else{break;}}
+         bn.push( tmp2 );
          //println!("                ! {} {}",a1[median],b1[0]);
-         tmp =a1[median]-b1[0];      loop{if tmp<0{tmp+=modu}else{break;}}
-         bn.push( tmp );
+         tmp3 =a1[median]-b1[0];      loop{if tmp<0{tmp+=modu}else{break;}}
+         bn.push( tmp3 );
+         if flm /*&& fli*/ {
+            sum2 +=tmp2;
+            println!("4   += {} {} {} ", tmp2, tmp3, b1[b1.len()-1-i]);
+         }
          for _i in 0..(median-1) {
              //println!("loop2      {} {}", b1[_i], b1[_i+1]);
              tmp = b1[_i]-b1[_i+1];  loop{if tmp<0{tmp+=modu}else{break;}}
