@@ -22,8 +22,8 @@ fn main() {
     //Розрахунок усих і зберігання тільки потрібних елементів у МАСИВІ 51х51
     //let mut diagonal: [i64; K+1] =[0; K+1]; 
     //const K2: usize =k2;
-    let mut diagonal: [i64; 9026] =[0; 9026]; 
-    //let mut diagonal: [i64; 12586269026] =[0; 12586269026]; 
+    //let mut diagonal: [i64; 9026] =[0; 9026]; 
+    let mut diagonal: [i64; 12586269026] =[0; 12586269026]; //--release
     diagonal[0] =0;
     println!("diagonal={:?}", diagonal);
 
