@@ -1,21 +1,33 @@
 
 fn main() {
-    let k =5;
-    println!("k = {}",k);
+    const K: usize =50;
+    println!("k = {}",K);
     let k2;
     let mut m =2;
     let mut f =Vec::<u64>::new(); f.push(0); f.push(1);
     loop {
         f.push(f[m-1]+f[m-2]);
         m +=1;
-        if m>k {
+        if m>K {
             break;
         }
     }
-    k2 =f[k]+1;
+    println!("{:?}", f);
+    k2 =f[K]+1;
     println!("k2= {k2}");
-    //let mut c: [[i64; k+1] =[0; k+1]; k+1]; 
-    //println!("{:?}", c);
+    let mut c: [[i64; K+1]; K+1] =[[0; K+1]; K+1]; 
+    c[0][1] =1;
+    println!("{:?}", c);
+
+    //Розрахунок усих і зберігання тільки потрібних елементів у МАСИВІ 51х51
+    //let mut diagonal: [i64; K+1] =[0; K+1]; 
+    //const K2: usize =k2;
+    let mut diagonal: [i64; 9026] =[0; 9026]; 
+    //let mut diagonal: [i64; 12586269026] =[0; 12586269026]; 
+    diagonal[0] =0;
+    println!("diagonal={:?}", diagonal);
+
+
 }
 
 

@@ -41,7 +41,17 @@ Type "help", "copyright", "credits" or "license()" for more information.
 
 
 
-
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.68s
+     Running `D:\202x\2025\Python\ProjectEuler\940\rust2\target\debug\rust2.exe`
+k = 5
+[0, 1, 1, 2, 3, 5]
+k2= 6
+[[0, 0, 0, 0, 0, 0], 
+ [0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0], 
+ [0, 0, 0, 0, 0, 0], 
+ [0, 0, 0, 0, 0, 0], 
+ [0, 0, 0, 0, 0, 0]]
 
 
 
