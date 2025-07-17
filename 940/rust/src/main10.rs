@@ -2,33 +2,22 @@
 
 fn main() {
     let modu: i64 =1123581313;
-    //let k =5;
-    const K: usize =16;
+    let k =50;
     let k2;
-    let mut m =2;  
-    let mut mm =2;  
-    let mut m2;
+    let mut m =2;  let mut m2;
     let mut f =Vec::<u64>::new(); f.push(0); f.push(1);
-    let mut ff: [u64; K-1] =[0; K-1]; 
-    ff[0]=1; ff[1]=2; 
     let mut a1 =Vec::<i64>::new();    a1.push(1);  a1.push(2);
     let mut b1 =Vec::<i64>::new();    b1.push(1);
     loop {
         f.push(f[m-1]+f[m-2]);
         m +=1;
-        if m>K {
+        if m>k {
             break;
         }
     }
-    if mm<K-1 { loop {
-        ff[mm] =ff[mm-1]+ff[mm-2];
-        mm +=1;
-        if mm>K-2 { break; } } }
-    k2 =f[K]+1;
+    k2 =f[k]+1;
     println!("k2= {k2}");
     f.remove(0);  f.remove(0);
-    println!("{:?}", f);
-    println!("{:?}", ff);
     //
     m =2;
     let mut median =1;
@@ -115,7 +104,7 @@ fn main() {
          median +=1;
          b1=bn.to_vec(); bn.clear();
          //Обчислення суми S(K)     
-/*
+         /*
          if f.contains(&(m.try_into().unwrap())) {
              println!("             Обчислення {} {}",m,sum);
              for _i in 1..(m+1) {
@@ -132,8 +121,7 @@ fn main() {
                  }
                  if ii==0 {break;}
              }
-         }  
-*/
+         }  */
          m +=1;  if m==k2.try_into().unwrap() {break;}
     }
     println!("! !      {}",sum2);

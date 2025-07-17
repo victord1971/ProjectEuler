@@ -23,9 +23,9 @@ fn main() {
     //let mut diagonal: [i64; K+1] =[0; K+1]; 
     //const K2: usize =k2;
     //let mut diagonal: [i64; 9026] =[0; 9026]; 
-    let mut diagonal: [i64; 12586269026] =[0; 12586269026]; //--release
-    diagonal[0] =0;
-    println!("diagonal={:?}", diagonal);
+    let mut diagonal: Box<[i64; 12586269026]> =Box::new([0; 12586269026]); //--release
+    diagonal[0] =10;
+    //println!("diagonal={:?}", diagonal);
 
 
 }
