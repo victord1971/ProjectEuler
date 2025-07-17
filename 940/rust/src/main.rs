@@ -2,35 +2,34 @@
 
 fn main() {
     let modu: i64 =1123581313;
-    //let k =5;
-    const K: usize =16;
+    //let k =50;
+    const K: usize =50;
     let k2;
-    let mut m =2;  
+    //let mut m =2;  
     let mut mm =2;  
     let mut m2;
-    let mut f =Vec::<u64>::new(); f.push(0); f.push(1);
+    //let mut f =Vec::<u64>::new(); f.push(0); f.push(1);
     let mut ff: [u64; K-1] =[0; K-1]; 
     ff[0]=1; ff[1]=2; 
     let mut a1 =Vec::<i64>::new();    a1.push(1);  a1.push(2);
     let mut b1 =Vec::<i64>::new();    b1.push(1);
-    loop {
-        f.push(f[m-1]+f[m-2]);
+/*    
+    loop { f.push(f[m-1]+f[m-2]);
         m +=1;
         if m>K {
-            break;
-        }
-    }
+            break; } }
+*/            
     if mm<K-1 { loop {
         ff[mm] =ff[mm-1]+ff[mm-2];
         mm +=1;
         if mm>K-2 { break; } } }
-    k2 =f[K]+1;
+    k2 =ff[K-2]+1;
     println!("k2= {k2}");
-    f.remove(0);  f.remove(0);
-    println!("{:?}", f);
+    //f.remove(0);  f.remove(0);
+    //println!("{:?}", f);
     println!("{:?}", ff);
-    //
-    m =2;
+    // Основна частина
+    mm =2;
     let mut median =1;
     //let mut sum =2;
     let mut sum2 =2;
@@ -44,13 +43,14 @@ fn main() {
     let mut fli: bool;
     loop {       
          i =0; flm =false;
-         if f.contains(&(m as u64))   {
+         //if f.contains(&(m as u64))   {
+         if ff.contains(&(mm as u64))   {
               flm =true; 
          }
          loop {
               tmp =(a1[i]+a1[i+1]) %modu;
               //println!("     i= {}",i);
-              if f.contains(&(i as u64))  {
+              if ff.contains(&(i as u64))  {
                 fli =true;
                 if flm {
                   sum2 +=tmp;  
@@ -64,7 +64,7 @@ fn main() {
          }
          tmp2 =(2*an[i]+a1[i]) %modu;
          an.push(tmp2);
-         if flm && f.contains(&((i+1) as u64))  {
+         if flm && ff.contains(&((i+1) as u64))  {
               sum2 +=tmp2; 
               //println!("2   +={} ", tmp2);
          }         
@@ -81,8 +81,8 @@ fn main() {
          tmp3 =a1[median]-b1[0];      loop{if tmp<0{tmp+=modu}else{break;}}
          bn.push( tmp3 );
          if flm {
-            m2 =m-1;
-            if f.contains(&(m2 as u64)) {
+            m2 =mm-1;
+            if ff.contains(&(m2 as u64)) {
                 sum2 +=tmp2;
                 //444444444444444444444444444
                 //println!("4   += {}  ", tmp2); 
@@ -96,11 +96,11 @@ fn main() {
              tmp = b1[_i]-b1[_i+1];  loop{if tmp<0{tmp+=modu}else{break;}}
              bn.push( tmp );
              //666666666666666666666666666
-             m2 =m-3-_i;
-             if flm && f.contains(&(m2 as u64)) {
+             m2 =mm-3-_i;
+             if flm && ff.contains(&(m2 as u64)) {
                 //println!("6   += {} ", tmp);
                 sum2 =(sum2+tmp) %modu;
-                println!("             Обчислення {} {}",m,sum2);
+                println!("             Обчислення {} {}",mm,sum2);
              }   
          }
 /*
@@ -134,7 +134,7 @@ fn main() {
              }
          }  
 */
-         m +=1;  if m==k2.try_into().unwrap() {break;}
+         mm +=1;  if mm==k2.try_into().unwrap() {break;}
     }
     println!("! !      {}",sum2);
 }
