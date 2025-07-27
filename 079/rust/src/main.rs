@@ -3,6 +3,8 @@
 use std::fs;
 
 fn main() {
+    const DIGITS: [usize;8] = [0, 1, 2, 3, 6, 7, 8, 9];     
+    println!("{:?}", DIGITS);
     let contents = fs::read_to_string("0079_keylog.txt")
         .expect("Should have been able to read the file");
     //println!("With text:\n{contents}   {}", contents.len());
