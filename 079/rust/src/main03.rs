@@ -18,7 +18,6 @@ fn main() {
     let mut flag;
     let mut file_flag;
     let mut passlenght;
-    let mut spassword;
     //for string in contents {
     loop  {
         //println!( "{}", &contents[i..i+3]);
@@ -29,13 +28,13 @@ fn main() {
         if i>199  {break;}
     }
     println!("{:?}", vfile);
-         
-    password = 1000;   
-    loop {
+
+    for xxx in vfile  {
         file_flag = 0;
-        for xxx in &vfile  {     
-            svfile = xxx.to_string();
-            spassword = password.to_string();
+        password = 1000;
+        svfile = xxx.to_string();
+        loop {
+            let spassword = password.to_string();
             //println!("{}  {}  {}",password, spassword, svfile);
             passlenght = spassword.len();
             flag = 0; i=0; one_of_three = 0;
@@ -55,11 +54,9 @@ fn main() {
                 //println!("  {}  {}  {}", xxx, password, flag);
                 file_flag += 1;
             }
+            password += 1; if password>99999 {break;}
         }
-
-        if file_flag > 34  {println!("  {}  {}", password, file_flag);}
-        //println!("ура-ура-ура")};
-
-        password += 1; if password>999999999 {break;}
+        println!("  {}  {}", xxx, file_flag);
+        if file_flag == 20  {println!("ура-ура-ура")};
     }    
 }
