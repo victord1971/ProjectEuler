@@ -2,51 +2,40 @@
 use std::fs;
 //use std::fmt::Write;
 fn main() {
-    let mut _osnovy =Vec::<f64>::new();
+    let mut _osnovy =Vec::<usize>::new();
     let mut _stepeni =Vec::<usize>::new();
     //let mut _char = String::new();
-    let mut temp :usize;
-    let mut temp1 :f64;
-    let mut temp2 :f64;
+    let mut temp;
     //let mut temp2;
     let mut poch = 0;
     let mut kinec = 1;
     let contents = fs::read_to_string("0099_base_exp.txt")
         .expect("Should have been able to read the file");
-    println!("{contents}\n   {}", contents.len());
+    //println!("{contents}\n   {}", contents.len());
     let blabla = contents.len();
     loop {
         if kinec+1 > blabla {
             println!("{}",&contents[poch..kinec]);
             temp = contents[poch..kinec].parse().unwrap();
-            temp2 = 10.0*(temp as f64)*_osnovy[_osnovy.len()-1];
-            _stepeni.push(temp2.round() as usize);
+            _stepeni.push(temp);
+            //temp2 = (temp as u8) as char;
+            //write!(_char,"{temp2}").unwrap();
             break;
         }
         if &contents[kinec..kinec+1] == "," {
             //println!("                  {}",&contents[poch..kinec]);
             temp = contents[poch..kinec].parse().unwrap();
-            temp1 = temp as f64;
-            _osnovy.push(temp1.ln());
+            _osnovy.push(temp);
             poch = kinec+1;
         }
         if &contents[kinec..kinec+1] == "\n" {
             //println!("                  {}",&contents[poch..kinec]);
             temp = contents[poch..kinec].parse().unwrap();
-            temp2 = 10.0*(temp as f64)*_osnovy[_osnovy.len()-1];
-            _stepeni.push(temp2.round() as usize);
-            if temp2.round() as usize == 69199956 {
-                println!(" -----> {}",_osnovy.len());
-            }
+            _stepeni.push(temp);
             poch = kinec+1;
         }
         kinec+=1;
     }
     println!("{:?}   {}", _osnovy,_osnovy.len());
-    //_stepeni.sort();
     println!("{:?}   {}",_stepeni,_stepeni.len());
-    //let aa = gcd(24,12);
-    //println!("{}",aa);
-    //let a ;
-    println!("{}",632382.0_f64.ln());
 }
