@@ -9,7 +9,7 @@ fn main() {
     let mut _cards = Vec::<String>::new();
     let contents = fs::read_to_string("0054_poker.txt")
         .expect("Should have been able to read the file");
-    println!("{contents}\n   {}", contents.len());  
+    //println!("{contents}\n   {}", contents.len());  
     let blabla = contents.len();
     loop {
         if kinec+1 > blabla {
@@ -30,5 +30,8 @@ fn main() {
         kinec+=1;
     }
     println!("{:?}   {}", _cards,_cards.len());
-}
 
+}
+fn ranked9(hand: &str) -> bool {
+    false
+}
