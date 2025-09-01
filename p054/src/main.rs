@@ -29,9 +29,18 @@ fn main() {
         }
         kinec+=1;
     }
-    println!("{:?}   {}", _cards,_cards.len());
-
+    //println!("{:?}   {}", _cards,_cards.len());
+    for x in _cards {
+        if ranked6(&x) || ranked6(&x[15..29]) {   println!("   {} = Flush",x);}
+    }
 }
-fn ranked9(hand: &str) -> bool {
+fn ranked5(_hand: &str) -> bool {  //Straight Flush
+    false
+}
+fn ranked6(_hand: &str) -> bool {  //Flush
+    if _hand[1..2] == _hand[4..5] &&
+       _hand[1..2] == _hand[7..8] &&
+       _hand[1..2] == _hand[10..11] &&
+       _hand[1..2] == _hand[13..14]{return true}
     false
 }
