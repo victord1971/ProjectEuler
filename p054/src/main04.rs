@@ -36,18 +36,18 @@ fn main() {
 			num += 1;
 			println!("   {} = Four",x);
 		}
-        else if ranked6(&x) || ranked6(&x[15..29]) {   
+        if ranked6(&x) || ranked6(&x[15..29]) {   
 			num += 1;
 			println!("   {} = Flush",x);
 		}
-		else if ranked5(&x) || ranked5(&x[15..29]) {   
+		if ranked5(&x) || ranked5(&x[15..29]) {   
 			num += 1;
 			println!("   {} = Straight",x);
 		}
 		//if ( ranked5(&x) && ranked6(&x) ) || ( ranked5(&x[15..29]) && ranked6(&x[15..29]) ) {   
 		//	println!("   {} = StraightFlush",x);
 		//}
-        else if ranked4(&x) || ranked4(&x[15..29]) {   
+        if ranked4(&x) || ranked4(&x[15..29]) {   
 			num += 1;
 			println!("   {} = Three",x);
 		}
