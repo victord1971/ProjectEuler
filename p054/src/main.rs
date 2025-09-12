@@ -31,6 +31,7 @@ fn main() {
     }
     //println!("{:?}   {}", _cards,_cards.len());
 	let mut num = 0;
+	//let mut result = 0;
     for x in _cards {
         if ranked8(&x) || ranked8(&x[15..29]) {   
 			num += 1;
@@ -51,6 +52,22 @@ fn main() {
 			num += 1;
 			println!("   {} = Three",x);
 		}
+		let mut r1=1; let mut r2=1;
+		// ГРАВЕЦЬ1
+		if ranked8(&x) {r1=8;} 
+		else 
+			if ranked4(&x) {r1 =4;
+				if ranked7(&x)  {r1=7;}
+			}	
+		if ranked6(&x) {r1=6;} 
+		else 
+			if ranked5(&x) {r1 =5;}
+		// ГРАВЕЦЬ2
+		if ranked8(&x[15..29]) {r2=8;}
+		else if ranked4(&x[15..29]) {r2 =4;
+			if ranked7(&x[15..29])  {r2=7;}
+		}	
+		// ПОРІВНЮЄМО
     }  
 	println!(" Загалом: {} випадків",num);
 }
@@ -105,6 +122,9 @@ fn ranked6(_hand: &str) -> bool {  //Flush
        _hand[1..2] == _hand[7..8] &&
        _hand[1..2] == _hand[10..11] &&
        _hand[1..2] == _hand[13..14] {return true}
+    false
+}
+fn ranked7(_hand: &str) -> bool {  //3+2
     false
 }
 fn ranked8(_hand: &str) -> bool {  //Four
