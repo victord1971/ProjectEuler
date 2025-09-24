@@ -85,7 +85,7 @@ fn main() {
         median += 1;
         current_m += 1;
 
-        bar.inc(1);
+        //bar.inc(1);
         bar.set_message(format!("{}", sum2.rem_euclid(MOD)));
     }
 
