@@ -23,7 +23,17 @@ fn sieve(n: usize) -> Vec<usize> {
 }
 
 fn main() {
-    let n = 1000_000;
+    let n = 100_000;
     let primes = sieve(n);
-    println!("Прості числа до {}: {:?}", n, primes);
+    //println!("Прості числа до {}: {:?}", n, primes);
+    
+    let mut num = 123456789;
+    loop
+    {
+		if primes.contains(&num) {
+			println!("  {}", num);
+		}	
+		num += 1;
+		if num > 987654321 {break;}
+	}	
 }
