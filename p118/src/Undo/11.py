@@ -13,7 +13,7 @@ def sieve(n: int) -> list[int]:
             for multiple in range(p * p, n + 1, p):
                 is_prime[multiple] = False
 
-    return primes[-1]
+    return primes
 
 # приклад використання
 n = 1_000_000_000

@@ -1,9 +1,24 @@
-module p118
 
-greet() = print("Hello World!")
+function sieve_of_eratosthenes(n::Int)
+    # Створення масиву булевих значень
+    is_prime = trues(n)
+    is_prime[1] = false  # 1 не є простим числом
 
-end # module p118
+    for i in 2:floor(Int, sqrt(n))
+        if is_prime[i]
+            for j in i^2:i:n
+                is_prime[j] = false
+            end
+        end
+    end
 
-# Call the function after defining the module:
-p118.greet()
+    # Повертаємо список простих чисел
+    return findall(is_prime)
+end
+
+# Виклик функції
+n = 1_000_000_000
+primes = sieve_of_eratosthenes(n)
+println("Прості числа до $n: ", primes[end])
+
 
