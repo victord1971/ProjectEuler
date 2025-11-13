@@ -1,24 +1,49 @@
 
-function sieve_of_eratosthenes(n::Int)
-    # Створення масиву булевих значень
-    is_prime = trues(n)
-    is_prime[1] = false  # 1 не є простим числом
+using Primes, Combinatorics
 
-    for i in 2:floor(Int, sqrt(n))
-        if is_prime[i]
-            for j in i^2:i:n
-                is_prime[j] = false
+# Усі цифри від 1 до 9
+digits = collect(1:9)
+
+# Допоміжна функція: перетворити вектор цифр у число
+digits_to_int(v) = parse(Int, join(v))
+
+# Генеруємо всі можливі розбиття множини {1,...,9} на групи цифр
+function partitions(v)
+    if length(v) == 1
+        return [[v]]
+    end
+    result = []
+    for i in 1:(length(v)-1)
+        left = v[1:i]
+        right = v[(i+1):end]
+        for rest in partitions(right)
+            push!(result, [left; rest])
+        end
+    end
+    push!(result, [v])
+    return result
+end
+
+# Перевірка чи всі частини в розбитті — прості
+function is_valid_partition(p)
+    nums = [digits_to_int(part) for part in p]
+    all(isprime, nums)
+end
+
+# Основна функція
+function euler118()
+    seen = Set{Set{Int}}()
+    perms = permutations(digits)
+    for perm in perms
+        for part in partitions(perm)
+            # Пропускаємо, якщо числа мають 0 попередніх нулів (у нас їх немає)
+            nums = [digits_to_int(a) for a in part]
+            if all(isprime, nums)
+                push!(seen, Set(nums))
             end
         end
     end
-
-    # Повертаємо список простих чисел
-    return findall(is_prime)
+    return length(seen)
 end
 
-# Виклик функції
-n = 1_000_000_000
-primes = sieve_of_eratosthenes(n)
-println("Прості числа до $n: ", primes[end])
-
-
+println("Кількість панцифрових простих множин: ", euler118())
