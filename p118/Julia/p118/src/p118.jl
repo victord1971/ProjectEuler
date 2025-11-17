@@ -40,6 +40,7 @@ function euler118()
             nums = [digits_to_int(a) for a in part]
             if all(isprime, nums)
                 push!(seen, Set(nums))
+                println(Set(nums))
             end
         end
     end
